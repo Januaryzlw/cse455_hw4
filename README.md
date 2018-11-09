@@ -2,7 +2,7 @@
 
 Welcome friends,
 
-It's time for neural networks!
+It's time for neural networks! This time, the testing is done in Python, but the code you need to write is mostly in C. Download this repo, enter it and simply type `make` in the terminal. After editing the code, type `make clean` and then `make`. The repo is tested to work with MacOS; feel free to contact the course staff for compilation issues.
 
 ## 1. Implementing neural networks ##
 
