@@ -2,7 +2,7 @@
 
 Welcome friends,
 
-It's time for neural networks! This time, the testing is done in Python, but the code you need to write is mostly in C. Download this repo, enter it and simply type `make` in the terminal. After editing the code, type `make clean` and then `make`. The repo is tested to work with MacOS; feel free to contact the course staff for compilation issues.
+It's time for neural networks! This time, the testing is done in Python, but the code you need to write is mostly in C. Download this repo, enter it and simply type `make` in the terminal. After editing the code, type `make clean` and then `make`. The repo is tested to work with Linux and MacOS; feel free to contact the course staff for compilation issues.
 
 ## 1. Implementing neural networks ##
 
@@ -87,7 +87,7 @@ again, we have to make the matrix dimensions line up so it actually ends up bein
 
 After we've performed a round of forward and backward propagation we want to update our weights. We'll fill in `void update_layer(layer *l, double rate, double momentum, double decay)` to do just that.
 
-With momentum and decay our weight update rule is:
+With learning rate (η), momentum (m) and decay (λ) our weight update rule is:
 
     Δw_t = dL/dw_t - λw_t + mΔw_{t-1}
     w_{t+1} = w_t + ηΔw_t
@@ -113,7 +113,7 @@ Will be useful to test out our model once we are done training it.
 
 #### `double cross_entropy_loss(matrix y, matrix p)` ####
 
-Calculates the cross-entropy loss for the ground-truth labels `y` and our predictions `p`. Cross-entropy loss is negative log-likelihood (log-likelihood is for logistic regression) for multi-class classification. Since we added the negative sign it becomes a loss function that we want to minimize. Cross-entropy loss is given by:
+Calculates the cross-entropy loss for the ground-truth labels `y` and our predictions `p`. For classification of an image into one of say `N` object classes, `y` is an `N`-length vector with all zero values except for the object class present in the image, for which it is 1. Cross-entropy loss is negative log-likelihood (log-likelihood is for logistic regression) for multi-class classification. Since we added the negative sign it becomes a loss function that we want to minimize. Cross-entropy loss is given by:
 
     L = Σ(-y_i log(p_i))
 
