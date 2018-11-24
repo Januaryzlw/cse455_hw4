@@ -195,6 +195,8 @@ Modify your model so it has 4 layers instead of 2. The layers should be `inputs 
 
 Use the 2 layer model with the best activation for layer 1 but linear activation for layer 2. Now implement the functions `l1_loss` and `l2_loss` and change the necessary code in `classifier.c` to use these loss functions. Observe the output values and accuracy of the model and write down your observations for both the loss functions compared to cross-entropy loss. P.S. L2 and L1 losses are generally used for regression, but this is a classification problem.
 
+#UPDATE#: Note that you need to calculate the gradient of the new loss with respect to model output and change `dL` in `train_model()` accordingly. While derivative of L2 loss is straightforward, the gradient of L1 loss is constant and will affect the training (either the accuracy will be low or the model will converge to a large loss within a few iterations.) To avoid this, compute the [Huber loss](https://en.wikipedia.org/wiki/Huber_loss) instead of L1 and write Huber loss equation in `l1_loss()`. In simple words, Huber loss is equal to L1 loss when `y - p` is > 1 and equal to L2 loss when <= 1. You may have to be careful about the sign (i.e. `y-p` or `p-y`). 
+ 
 
 ## 3. Training on CIFAR ##
 
